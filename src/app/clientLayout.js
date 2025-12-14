@@ -2,10 +2,10 @@
 
 import { usePathname } from "next/navigation";
 import Navbar from "@/components/UI/Navbar";
-
+import useIsMobile from "@/hooks/useIsMobile";
 export default function ClientLayout({ children }) {
   const pathname = usePathname();
-
+  const isMobile = useIsMobile();
   // Paths where navbar should NOT show
   const hideNavbarPaths = ["/", "/login", "/signup"]; 
 
@@ -13,8 +13,14 @@ export default function ClientLayout({ children }) {
 
   return (
     <>
+      <div className={`
+          transition-all
+          ${isMobile ? "pb-[20px]" : "pl-[10px] md:pl-[0px]"}
+        `}>
       {!shouldHideNavbar && <Navbar />}
       {children}
+      </div>
     </>
   );
 }
+
