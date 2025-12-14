@@ -20,7 +20,7 @@ export default function ClientLayout({ children }) {
     <>
       <div className={`
           transition-all
-          ${shouldApplyPadding ? (isMobile ? "pb-[40px]" : "pl-[10px]") : ""}
+          ${shouldApplyPadding ? (isMobile ? "pb-[50px]" : "pl-[10px]") : ""}
         `}
       >
         {!shouldHideNavbar && <Navbar />}
