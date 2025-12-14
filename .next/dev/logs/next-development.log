@@ -1,0 +1,9 @@
+[00:00:01.279] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.418] Server  LOG      ✓ Ready in 1032ms
+[00:00:10.590] Server  LOG      ○ Compiling /dashboard ...
+[00:00:21.159] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:25.666] Browser LOG     Fetched: [{"completed":true,"created_at":"2025-12-13T18:30:00.000Z","id":7,"task_name":"Gym","username":"veduuvada"},{"completed":true,"created_at":"2025-12-13T18:30:00.000Z","id":6,"task_name":"Gym","username":"veduuvada"}]
+[00:02:13.855] Server  WARN     ⚠ Cross origin request detected from 192.168.0.106 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[00:02:13.904] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:29.975] Server  LOG      ✓ Compiled in 212ms

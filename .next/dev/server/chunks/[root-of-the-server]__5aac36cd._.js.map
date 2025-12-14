@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 46, "column": 0}, "map": {"version":3,"sources":["file:///home/veduuvada/TaskFlowGit/TaskFlow/src/app/api/logout/route.js"],"sourcesContent":["import { NextResponse } from \"next/server\";\n\nexport async function POST() {\n  const response = NextResponse.json(\n    { success: true, message: \"Logged out\" }\n  );\n\n  // Clear JWT cookie\n  response.cookies.set(\"token\", \"\", {\n    httpOnly: true,\n    secure: true,          // must match how it was set\n    sameSite: \"none\",      // must match\n    path: \"/\",             // VERY IMPORTANT\n    maxAge: 0,\n  });\n\n  return response;\n}\n"],"names":[],"mappings":";;;;AAAA;;AAEO,eAAe;IACpB,MAAM,WAAW,gJAAY,CAAC,IAAI,CAChC;QAAE,SAAS;QAAM,SAAS;IAAa;IAGzC,mBAAmB;IACnB,SAAS,OAAO,CAAC,GAAG,CAAC,SAAS,IAAI;QAChC,UAAU;QACV,QAAQ;QACR,UAAU;QACV,MAAM;QACN,QAAQ;IACV;IAEA,OAAO;AACT"}}]
+}
