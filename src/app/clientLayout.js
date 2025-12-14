@@ -15,7 +15,7 @@ export default function ClientLayout({ children }) {
     <>
       <div className={`
           transition-all
-          ${isMobile ? "pb-[20px] pl-[0px]" : "pl-[10px] pb-[0px]"}
+          ${isMobile ? "pb-[25px] md:pl-[0px]" : "pl-[10px] md:pl-[0px]"}
         `}>
       {!shouldHideNavbar && <Navbar />}
       {children}
