@@ -28,6 +28,7 @@ export default function Home() {
         className="text-lg text-gray-300 max-w-xl text-center mb-10"
       >
         Your personal productivity companion — Create tasks, manage your day, and stay focused.
+        Made By Vedant Tyagi
       </motion.p>
 
       {/* Buttons */}
