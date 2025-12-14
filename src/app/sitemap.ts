@@ -1,4 +1,6 @@
-export default function sitemap() {
+import { MetadataRoute } from "next";
+
+export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://taskflov.vercel.app";
 
   return [
@@ -6,7 +8,7 @@ export default function sitemap() {
       url: `${baseUrl}/`,
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 1.0,
+      priority: 1,
     },
     {
       url: `${baseUrl}/login`,
