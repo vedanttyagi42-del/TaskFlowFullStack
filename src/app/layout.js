@@ -14,6 +14,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "TaskFlow",
   description: "App for tracking tasks and boosting productivity",
+  verification: {
+    google: "U5MuFiB3r44x5i_oAnoW_INY9vAFP3P7EaXdLfA755I",
+  },
 };
 
 export default function RootLayout({ children }) {
