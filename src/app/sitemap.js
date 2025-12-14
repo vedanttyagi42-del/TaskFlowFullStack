@@ -1,6 +1,5 @@
-import { MetadataRoute } from "next";
-
-export default function sitemap(): MetadataRoute.Sitemap {
+/** @type {import('next').MetadataRoute.Sitemap} */
+export default function sitemap() {
   const baseUrl = "https://taskflov.vercel.app";
 
   return [
