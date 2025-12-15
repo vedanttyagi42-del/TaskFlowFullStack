@@ -5,9 +5,20 @@ import { pool } from "@/lib/db";
 /* 🔐 Auth helper */
 function auth(req) {
   const token = req.cookies.get("token")?.value;
-  if (!token) throw new Error("Unauthorized");
-  return jwt.verify(token, process.env.NEXT_PUBLIC_JWT_SECRET);
+  console.log("RAW TOKEN:", token);
+
+  if (!token) throw new Error("Unauthorized - No token");
+
+  try {
+    const decoded = jwt.verify(token, process.env.NEXT_PUBLIC_JWT_SECRET);
+    console.log("DECODED TOKEN:", decoded);
+    return decoded;
+  } catch (err) {
+    console.log("JWT VERIFY ERROR:", err.message);
+    throw new Error("Unauthorized - Invalid token");
+  }
 }
+
 
 /* ✅ TOGGLE COMPLETE */
 export async function PATCH(req, { params }) {
