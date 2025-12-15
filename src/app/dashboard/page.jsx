@@ -76,7 +76,7 @@ export default function Dashboard() {
   };
 
   // Mark Task Complete / Toggle
-  const toggleComplete = async (id, currentStatus) => {
+  const toggleComplete = async (id) => {
     try {
       const res = await fetch(`/api/tasks/${id}`, {
         method: "PATCH",
@@ -172,10 +172,12 @@ const deleteTask = async (id) => {
               animate={{ opacity: 1, y: 0 }}
               className="flex items-center justify-between bg-[#1a1a1a] p-4 rounded-xl"
             >
-              <div
-                className="flex items-center gap-3 cursor-pointer"
-                onClick={() => toggleComplete(task.id, task.completed)}
+              <Button
+                type="button"
+                className="flex items-center gap-3 cursor-pointer text-left"
+                onClick={() => toggleComplete(task.id)}
               >
+
                 {task.completed ? (
                   <CheckCircle className="text-green-600" />
                 ) : (
@@ -188,7 +190,7 @@ const deleteTask = async (id) => {
                 >
                   {task.task_name}
                 </p>
-              </div>
+              </Button>
 
               <Button variant="ghost" className="text-red-500" onClick={() => deleteTask(task.id)}>
                 <Trash2 size={18} />
