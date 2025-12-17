@@ -20,7 +20,6 @@ export default function Dashboard() {
   const [tasks, setTasks] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [newTitle, setNewTitle] = useState("");
-  const Url = process.env.NEXT_PUBLIC_SERVER_ADRESS;
   // Fetch user tasks
   const fetchTasks = async () => {
     try {
@@ -78,9 +77,13 @@ export default function Dashboard() {
   // Mark Task Complete / Toggle
   const toggleComplete = async (id) => {
     try {
-      const res = await fetch(`/api/tasks/${id}`, {
-        method: "PATCH",
+      const res = await fetch(`/api/tasks/toggle`, {
+        method: "POST",
         credentials: "include",
+        headers: {
+        "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id }),
       });
 
       const data = await res.json();
@@ -96,9 +99,13 @@ export default function Dashboard() {
   // Delete Task
 const deleteTask = async (id) => {
   try {
-    const res = await fetch(`/api/tasks/${id}`, {
-      method: "DELETE",
+    const res = await fetch(`/api/tasks/delete`, {
+      method: "POST",
       credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id }),
     });
 
     const data = await res.json();
@@ -110,7 +117,6 @@ const deleteTask = async (id) => {
     console.error("Error deleting task:", err);
   }
 };
-
   // Stats
   const completed = tasks.filter((t) => t.completed).length;
   const pending = tasks.filter((t) => !t.completed).length;
