@@ -48,7 +48,7 @@ export default function LoginPage() {
         </h1>
 
         <div className="flex flex-col gap-5">
-          <Input label="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <Input type="email" label="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
           <Input type="password" label="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
         
