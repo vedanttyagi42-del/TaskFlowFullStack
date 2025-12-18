@@ -16,38 +16,42 @@ export default function SignupPage() {
   const router = useRouter();
   const Url = process.env.NEXT_PUBLIC_SERVER_ADRESS;
   async function handleSignup(e) {
-    e.preventDefault();
-    setError("");
-    try {
-      const res = await fetch(`/api/signup`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email:email,
-          password:password,
-          display_name: displayName,
-          username: username,
-        }),
-        credentials: "include", // allows cookies from server
-      });
+  e.preventDefault();
+  setError("");
 
-      const data = await res.json();
-
-      if (!res.ok) {
-        setError(data.error || "Something went wrong");
-        return;
-      }else{
-        
-        }
-
-      // Success → redirect
-      router.push("/dashboard");
-
-    } catch (err) {
-      setError("Server not responding");
-      console.error(err);
-    }
+  // 🔴 BLOCK EMPTY FIELDS
+  if (!email || !password || !displayName || !username) {
+    setError("All fields are required");
+    return;
   }
+
+  try {
+    const res = await fetch(`/api/signup`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        password,
+        display_name: displayName,
+        username,
+      }),
+      credentials: "include",
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      setError(data.error || "Something went wrong");
+      return;
+    }
+
+    router.push("/dashboard");
+  } catch (err) {
+    setError("Server not responding");
+    console.error(err);
+  }
+}
+
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center px-4">
