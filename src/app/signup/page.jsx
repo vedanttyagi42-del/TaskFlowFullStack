@@ -63,10 +63,10 @@ export default function SignupPage() {
         </h1>
 
         <div className="flex flex-col gap-5">
-          <Input label="Full Name" value={displayName} onChange={(e) => setDisplayName(e.target.value)} />
-          <Input label="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-          <Input type="email" label="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-          <Input type="password" label="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <Input label="Full Name" value={displayName} onChange={(e) => setDisplayName(e.target.value)} required/>
+          <Input label="Username" value={username} onChange={(e) => setUsername(e.target.value)} required/>
+          <Input type="email" label="Email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+          <Input type="password" label="Password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
         </div>
 
         <motion.button
